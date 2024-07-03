@@ -12,7 +12,7 @@ import  mongo  from "./db/mongo.js";
 dotenv.config();
 
 const __dirname = path.resolve();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 
 app.use(express.json()); 
 app.use(cookieParser());
@@ -28,6 +28,6 @@ app.get("*", (req, res) => {
 });
 
 server.listen(PORT, () => {
-	mongo();
+	mongo();		
 	console.log(` Running  port ${PORT}`);
 });

@@ -13,6 +13,16 @@ const Message = ({ message }) => {
 
 	const shakeClass = message.shouldShake ? "shake" : "";
 
+	const convertTime=(time)=>{
+		const[hours,minutes]=time.split(':');
+
+		let formetdH=parseInt(hours,10)%12;
+		formetdH=formetdH || 12
+	
+		const AM_PM=parseInt(hours,10)>=12?'PM':'AM';
+		return `${formetdH}:${minutes} ${AM_PM}`
+	}
+
 	return (
 		<div className={`chat ${chatClassName}`}>
 			<div className='chat-image avatar'>
@@ -21,7 +31,7 @@ const Message = ({ message }) => {
 				</div>
 			</div>
 			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
-			<div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>{formattedTime}</div>
+			<div className='chat-footer opacity-50 text-xs flex gap-1 items-center text-white-800'>{convertTime(formattedTime)}</div>
 		</div>
 	);
 };
