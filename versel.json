@@ -9,21 +9,21 @@
       }
     },
     {
-      "src": "./frontend",
+      "src": "./frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "includeFiles": ["frontend/**"]
+        "distDir": "frontend/dist"
       }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/server.js"
+      "dest": "/backend/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/index.html"
+      "dest": "/frontend/dist/$1"
     }
   ]
 }
