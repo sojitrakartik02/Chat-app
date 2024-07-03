@@ -25,4 +25,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Vercel directory
 .vercel
+
+# Dist directories
+frontend/dist
