@@ -12,7 +12,7 @@ export default defineConfig({
       },
     },
   },
-  build: { manifest: true, outDir: "./dist" },
+  build: { manifest: true, outDir: "dist" },
   base: "/",
-  root: "./src",
+  root: "./",
 });
