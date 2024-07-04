@@ -13,9 +13,6 @@
     "dev": "concurrently \"npm run server\" \"npm start --prefix frontend\""
   },
   "type": "module",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
