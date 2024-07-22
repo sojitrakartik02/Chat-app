@@ -9,9 +9,9 @@
   "scripts": {
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "build": "cd frontend && npm install && npm run build",
     "dev": "concurrently \"npm run server\" \"npm start --prefix frontend\"",
-    "preview": "vite preview"
+    "preview": "cd frontend && vite preview"
   },
   "type": "module",
   "dependencies": {
