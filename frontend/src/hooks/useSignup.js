@@ -26,17 +26,20 @@ const useSignup = () => {
     try {
       res.json({ message: "User registered successfully", data: user });
 
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName,
-          username,
-          password,
-          confirmPassword,
-          gender,
-        }),
-      });
+      const res = await fetch(
+        "https://chat-app-8j7q.onrender.com/api/auth/signup",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fullName,
+            username,
+            password,
+            confirmPassword,
+            gender,
+          }),
+        }
+      );
       console.log("Response status:", res.status);
       const data = await res.json();
       console.log("Response data:", data);

@@ -13,9 +13,16 @@ export const SocketContextProvider = ({ children }) => {
 	const [onlineUsers, setOnlineUsers] = useState([]);
 	const { authUser } = useAuthContext();
 
+	// const apiUrl = process.env.REACT_APP_API_URL
+	// console.log("apiUrl", apiUrl)
+
+
 	useEffect(() => {
+		// console.log("API URL:", apiUrl);
+		console.log(process.env);
+
 		if (authUser) {
-			const socket = io("https://chat-app-9dat.onrender.com", {
+			const socket = io("https://chat-app-8j7q.onrender.com", {
 				query: {
 					userId: authUser._id,
 				},
@@ -35,7 +42,7 @@ export const SocketContextProvider = ({ children }) => {
 				setSocket(null);
 			}
 		}
-	}, [authUser]);
+	}, []);
 
 	return <SocketContext.Provider value={{ socket, onlineUsers }}>{children}</SocketContext.Provider>;
 };

@@ -14,12 +14,16 @@ dotenv.config();
 
 const __dirname = path.resolve();
 const PORT = process.env.PORT || 9000;
+const frontendUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.FRONTEND_URL
+    : "http://localhost:3000";
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "*",
+    origin: frontendUrl,
     credentials: true,
   })
 );
