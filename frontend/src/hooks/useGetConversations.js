@@ -4,27 +4,23 @@ import toast from "react-hot-toast";
 const useGetConversations = () => {
   const [loading, setLoading] = useState(false);
   const [conversations, setConversations] = useState([]);
-  // const apiUrl = process.env.REACT_APP_API_URL;
-  // console.log("apiUrl", apiUrl);
+
   useEffect(() => {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const token = localStorage.getItem("token");
-        console.log(token);
-        const res = await fetch(
-          // `${apiUrl}/api/users`
-          "https://chat-app-8j7q.onrender.com/api/users",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            credentials: "include",
-          }
-        );
+        const res = await fetch("http://localhost:9000/api/users", {
+          credentials: "include",
+        });
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+
+        const contentType = res.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+          throw new Error("Received non-JSON response");
+        }
         const data = await res.json();
-        console.log("data", data);
         if (data.error) {
           throw new Error(data.error);
         }

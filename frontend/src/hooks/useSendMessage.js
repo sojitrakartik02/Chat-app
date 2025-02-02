@@ -10,13 +10,14 @@ const useSendMessage = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `https://chat-app-8j7q.onrender.com/api/messages/send/${selectedConversation._id}`,
+        `http://localhost:9000/api/messages/send/${selectedConversation._id}`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ message }),
+          credentials: "include",
         }
       );
       const data = await res.json();

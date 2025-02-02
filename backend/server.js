@@ -25,6 +25,8 @@ app.use(
   cors({
     origin: frontendUrl,
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 app.use("/api/auth", authRoutes);
