@@ -9,9 +9,12 @@ const useGetConversations = () => {
     const getConversations = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:9000/api/users", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://chat-app-8j7q.onrender.com/api/users",
+          {
+            credentials: "include",
+          }
+        );
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
